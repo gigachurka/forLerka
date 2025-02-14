@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+     <title>Letter</title>
+     <style>
+
+       :root {
+         font-style: italic;
+         --primary: #fff;
+         
+         background: url("US.jpg");
+         --bg-envelope-color: #f5edd1;
+         --envelope-tab: #ecdeb8;
+         --envelope-cover: #e6cfa7;
+         --shadow-color: rgba(0, 0, 0, 0.2);
+         --txt-color: #000000;
+         --heart-color: rgb(255, 0, 0);
+       }
+       body {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         background: var(--bg-color);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+       }
+       .container {
+         position: relative;
+       }
+       .envelope-wrapper {
+         position: relative;
+         background: var(--bg-envelope-color);
+         box-shadow: 0 0 40px var(--shadow-color);
+         transform-origin: top;
+         transition: transform 1s;
+         transform: translateY(0); 
+       }
+
+       .envelope {
+         position: relative;
+         width: 500px;
+         height: 400px;
+       }
+       .envelope::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         z-index: 2;
+         border-top: 230px solid var(--envelope-tab);
+         border-right: 250px solid transparent;
+         border-left: 250px solid transparent;
+         transform-origin: top;
+         transition: all 0.5s ease-in-out 0.7s;
+       }
+       .envelope::after {
+         content: "";
+         position: absolute;
+         z-index: 2;
+         width: 0px;
+         height: 0px;
+         border-top: 220px solid transparent;
+         border-right: 250px solid var(--envelope-cover);
+         border-bottom: 180px solid var(--envelope-cover);
+         border-left: 250px solid var(--envelope-cover);
+       }
+
+       .letter {
+         position: absolute;
+         right: 10%;
+         bottom: 10%;
+         width: 80%;
+         height: 80%;
+         background: var(--primary);
+         text-align: center;
+         transition: all 1s ease-in-out;
+         box-shadow: 0 0 5px var(--shadow-color);
+         padding: 20px 10px;
+         transform: translateY(0);
+       }
+       .letter > .text {
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         color: var(--txt-color);
+         text-align: left;
+         font-size: 10px;
+         transition: transform 1s ease-in-out;
+         transform: translateY(0); 
+       }
+       .heart {
+         position: absolute;
+         top: 56%;
+         left: 50.5%;
+         transform: translateX(-50%) rotate(45deg);
+         width: 40px;
+         height: 40px;
+         background: var(--heart-color);
+         z-index: 4;
+         box-shadow: 0 1px 6px var(--shadow-color);
+         cursor: pointer;
+         transition: transform 0.5s ease-in-out 1s;
+       }
+       .heart:before, 
+       .heart:after {
+         content: "";
+         position: absolute;
+         width: 40px;
+         height: 40px;
+         background-color: var(--heart-color);
+         border-radius: 50%;
+       }
+       .heart:before {
+         top: -16.5px;
+       }
+       .heart:after {
+         right: 16.5px;
+       }
+       .flap > .envelope::before {
+         transform: rotateX(180deg);
+         z-index: 0;
+       }
+       .flap > .envelope > .letter {
+         bottom: 100px;
+         transform: scale(1.5);
+         transition-delay: 1s;
+       }
+       .flap > .heart {
+         transform: rotate(90deg);
+         transition-delay: 0.4s;
+         
+       }
+       .envelope-wrapper.down {
+         transform: translateY(300px); 
+       }
+       .envelope-wrapper.down .letter {
+         transform: translateY(-100%); 
+       }
+     </style>
+   </head>
+   <body>
+    <div class="header">
+      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/124126743&color=%23373737&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+      </iframe>
+
+
+
+    
+     <div class="container">
+       <div class="envelope-wrapper">
+         <div class="envelope flap">
+           <div class="letter">
+             <div class="text">
+               
+
+              <strong>Любимая Лерка, я очень тебя люблю.</strong>
+
+              Надеюсь, что плохие воспоминания, связанные с нашими расхождениями в характерах, останутся позади и не будут мешать нам двигаться дальше в наше совместное светлое будущее. Я очень ценю тебя и мне трудно проводить без тебя дни, ночи, перерывы между уроками и многое другое, где тебя нет рядом. Знай, что я всегда буду стараться быть рядом, помогать и любить тебя бесконечно.
+              
+              Благодаря тебе мои рецепторы – слуховые, вкусовые, обонятельные и особенно зрительные (благодаря Вашей красоте, Валерия) – испытывают вечно новые и незабываемые ощущения.
+              
+              Поздравляю тебя с Днем святого Валентина и очень рад, что в этот день моё сердце принадлежит именно тебе.
+             
+             </div>
+           </div>
+         </div>
+       </div>
+       <div id="heart2" class="heart"></div>
+     </div>
+     <script>
+       const heart = document.querySelector('.heart');
+       const envelopeWrapper = document.querySelector('.envelope-wrapper');
+       
+       heart.addEventListener('click', function() {
+         envelopeWrapper.classList.toggle('down');
+       
+       }
+       );
+     </script>
+
+    </div>
+   </body>
+   </html> 
+
