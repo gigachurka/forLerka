@@ -138,17 +138,33 @@
        .envelope-wrapper.down .letter {
          transform: translateY(-100%); 
        }
+
+
+
+
+@media (max-width: 768px) {
+  iframe {
+      width: 100%;
+      height: 200px;
+  }
+
+  .envelope-wrapper {
+      width: 90%;
+      max-width: none; 
+  }
+
+  .text {
+      font-size: 14px;
+  }
+}
+
      </style>
    </head>
    <body>
     <div class="header">
       <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/124126743&color=%23373737&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-      </iframe>
-
-
-
-    
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/124126743&color=%23373737&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+    </iframe>
      <div class="container">
        <div class="envelope-wrapper">
          <div class="envelope flap">
@@ -180,8 +196,9 @@
        }
        );
      </script>
-
+  
     </div>
+
    </body>
    </html> 
 
