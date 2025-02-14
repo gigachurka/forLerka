@@ -127,6 +127,23 @@ color: rgb(232, 128, 146);
 color: white;
 
 }
+@media (max-width: 768px) { /* Применяется для экранов шириной до 768px */
+  h1 {
+      font-size: 30px; /* Уменьшите размер шрифта для заголовка */
+  }
+
+  .clickOnPict {
+      font-size: 20px; /* Уменьшите размер шрифта для текста с классом clickOnPict */
+  }
+
+  #walk {
+      font-size: 18px; /* Уменьшите размер шрифта для элемента с id walk */
+  }
+
+  .YESbtn, .NObtn {
+      padding: 8px 20px; /* Уменьшите отступы кнопок */
+  }
+}
 
 
 
